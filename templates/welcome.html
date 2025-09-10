@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game World</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #141414 0%, #0a0a0a 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .launch-card {
+      background-color: rgba(20, 20, 20, 0.9);
+      padding: 50px 60px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      max-width: 500px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .launch-card h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .launch-card p {
+      font-size: 1.1rem;
+      color: #bbb;
+      margin-bottom: 30px;
+    }
+
+    .enter-btn {
+      padding: 14px 36px;
+      font-size: 1rem;
+      background-color: #1a1a1a;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .enter-btn:hover {
+      background-color: #2b2b2b;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="launch-card">
+    <h1>Game World</h1>
+    <p>Explore. Play. Conquer</p>
+    <a href="/games"><button class="enter-btn">Begin</button></a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ game.name }} - Game Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+        }
+        .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle at 30% 30%, #444 40%, #1a1a1a 100%);
+        color:#111;
+        font-size: 34px;    
+        font-weight: bold;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        box-shadow: inset -2px -2px 4px rgba(0,0,0,0.6), inset 2px 2px 4px rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.4);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        }
+
+        .back-button:hover {
+        background: radial-gradient(circle at 30% 30%, #555 40%, #333 100%);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        transform: scale(1.05);
+        }
+
+
+
+        .image-section img {
+            width: 300px;           /* fixed width */
+            height: 400px;          /* fixed height */
+            object-fit: cover;      /* crops to fill the area without distortion */
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .info-section {
+            max-width: 600px;
+        }
+        .info-section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .info-section p {
+            margin: 10px 0;
+        }
+        .play-button {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .recommend-section {
+            margin-top: 60px;
+        }
+
+        .recommend-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .recommend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .recommend-card {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .recommend-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .recommend-card .name {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <a href="/games" class="back-button" title="Back to Games">
+    &#8592;
+    </a>
+
+
+
+
+    <div class="container">
+        <div class="image-section">
+            <img src="{{ image }}" alt="{{ game.name }}">
+        </div>
+        <div class="info-section">
+            <h2>{{ game.name }}</h2>
+            <p><strong>Plot:</strong> {{ game.plot }}</p>
+            <p><strong>Genre:</strong> {{ game.genres }}</p>
+            <p><strong>Rating:</strong> {{ game.rating }}</p>
+            <button class="play-button">Play Now</button>
+        </div>
+    </div>
+
+    <div class="recommend-section">
+        <div class="recommend-title">Recommended Games</div>
+        <div class="recommend-grid">
+            {% for rec in recommended %}
+                <a href="/game/{{ rec.name }}">
+                    <div class="recommend-card">
+                        <img src="{{ rec.image }}" alt="{{ rec.name }}">
+                        <div class="name">{{ rec.name }}</div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
